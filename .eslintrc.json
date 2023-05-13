@@ -29,7 +29,7 @@
       {
         "trailingComma": "all",
         "singleQuote": true,
-        "printWidth": 80,
+        "printWidth": 100,
         // below line only for windows users facing CLRF and eslint/prettier error
         // non windows users feel free to delete it
         "endOfLine": "auto"
@@ -64,7 +64,7 @@
     ],
     "import/prefer-default-export": "off",
     "func-names": "off",
-    "max-len": ["error", { "code": 80 }],
+    "max-len": ["error", { "code": 100 }],
     "import/extensions": "off",
     "consistent-return": "off",
     "quotes": [

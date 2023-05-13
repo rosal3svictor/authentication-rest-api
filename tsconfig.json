@@ -10,7 +10,9 @@
     "rootDir": "./src",
     "baseUrl": "./src",
     "paths": {
-      "@constants": ["constants"]
+      "@application/*": ["application/*"],
+      "@domain": ["domain"],
+      "@infrastructure/*": ["infrastructure/*"]
     },
     "resolveJsonModule": true,
 
