@@ -1,4 +1,4 @@
-import { type DataSourceResponse, type ApplicationFailedResponse } from '@domain';
+import { type DataSourceResponseOutput, type ApplicationFailedResponseOutput } from '@domain';
 import {
   USERS,
   type CrudValidationImplementation,
@@ -27,7 +27,9 @@ export class CreateUseCase {
     this._crudValidationResponsesImplementation = crudValidationResponsesImplementation;
   }
 
-  async invoke(user: User): Promise<DataSourceResponse<User> | ApplicationFailedResponse> {
+  async invoke(
+    user: User,
+  ): Promise<DataSourceResponseOutput<User> | ApplicationFailedResponseOutput> {
     const INCOMING_USER_DATA_IS_VALID = new USERS.DOMAIN.BUSINESS_LOGIC.CEATE_DATA_IS_VALID(
       user,
       this._crudValidationImplementation,

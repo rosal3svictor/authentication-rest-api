@@ -1,12 +1,11 @@
-// eslint-disable-next-line max-len
-import { ApplicationFailedResponseAdapter } from './ApplicationFailedResponseAdapter';
-import { DataSourceResponseAdapter } from './DataSourceResponseAdapter';
-import { UnhandledErrorResponseAdapter } from './UnhandledErrorResponseAdapter';
+import { ApplicationFailedResponse } from './ApplicationFailedResponse';
+import { DataSourceResponse } from './DataSourceResponse';
+import { UnhandledErrorResponse } from './UnhandledErrorResponse';
 import { RefineUserEntity } from './RefineUserEntity';
 
 export const ADAPTER = {
-  APPLICATION_FAILED_RESPONSE: ApplicationFailedResponseAdapter,
-  DATA_SOURCE_RESPONSE: DataSourceResponseAdapter,
-  UNHANDLED_ERROR: UnhandledErrorResponseAdapter,
+  APPLICATION_FAILED_RESPONSE: ApplicationFailedResponse,
+  DATA_SOURCE_RESPONSE: DataSourceResponse,
+  UNHANDLED_ERROR: UnhandledErrorResponse,
   REFINE_USER: RefineUserEntity,
 };

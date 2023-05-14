@@ -3,7 +3,7 @@ import type {
   CrudValidationImplementation,
   CrudValidationResponsesImplementation,
 } from '@application/users';
-import type { ApplicationFailedResponse } from 'domain/Adapters';
+import type { ApplicationFailedResponseOutput } from 'domain/Adapters';
 
 export class CreateDataIsValid {
   private readonly _user: User;
@@ -60,7 +60,7 @@ export class CreateDataIsValid {
     return this._crudValidationResponsesImplementation.validInputData();
   }
 
-  failed(): ApplicationFailedResponse {
+  failed(): ApplicationFailedResponseOutput {
     return this._crudValidationResponsesImplementation.invalidInputData();
   }
 }

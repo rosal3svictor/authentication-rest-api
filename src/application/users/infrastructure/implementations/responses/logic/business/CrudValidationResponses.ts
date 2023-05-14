@@ -1,5 +1,5 @@
 import { ADAPTER } from '@application/adapters';
-import { type ApplicationFailedResponse, CLIENT_ERROR_HTTP_STATUS_CODE } from '@domain';
+import { type ApplicationFailedResponseOutput, CLIENT_ERROR_HTTP_STATUS_CODE } from '@domain';
 import { HELPER } from '@infrastructure/helpers';
 
 import type { CrudValidationResponsesImplementation } from '@application/users';
@@ -55,7 +55,7 @@ export class CrudValidationResponses implements CrudValidationResponsesImplement
     return true;
   }
 
-  invalidInputData(): ApplicationFailedResponse {
+  invalidInputData(): ApplicationFailedResponseOutput {
     HELPER.APP_RESPONSE_LOG.EXCEPTION(
       // eslint-disable-next-line max-len
       'BUSINESS_LOGIC - CREATE_USER_DATA_IS_VALID: The information provided is incomplete or invalid, please verify it',

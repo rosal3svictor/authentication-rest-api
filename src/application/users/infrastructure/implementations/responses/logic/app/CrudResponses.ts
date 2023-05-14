@@ -1,6 +1,6 @@
 import {
-  type ApplicationFailedResponse,
-  type DataSourceResponse,
+  type ApplicationFailedResponseOutput,
+  type DataSourceResponseOutput,
   REDIRECTION_HTTP_STATUS_CODE,
 } from '@domain';
 import { HELPER } from '@infrastructure/helpers';
@@ -11,7 +11,7 @@ import type { User, CrudResponsesImplementation } from '@application/users';
 export class CrudResponses implements CrudResponsesImplementation {
   creationSucceeded(
     dataSource: Omit<User, 'password'>,
-  ): DataSourceResponse<Omit<User, 'password'>> {
+  ): DataSourceResponseOutput<Omit<User, 'password'>> {
     HELPER.APP_RESPONSE_LOG.SUCCESS(
       'APP_LOGIC - CREATE_USER_USE_CASE: A new user has been created successfully',
     );
@@ -22,7 +22,7 @@ export class CrudResponses implements CrudResponsesImplementation {
     );
   }
 
-  creationFailed(): ApplicationFailedResponse {
+  creationFailed(): ApplicationFailedResponseOutput {
     HELPER.APP_RESPONSE_LOG.WARNING(
       // eslint-disable-next-line max-len
       'APP_LOGIC - CREATE_USER_USE_CASE: The information provided is already associated to a pre-existing record',

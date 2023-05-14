@@ -1,4 +1,4 @@
-import type { ApplicationFailedResponse } from '@domain';
+import type { ApplicationFailedResponseOutput } from '@domain';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure
@@ -10,7 +10,7 @@ export interface CrudValidationResponsesImplementation {
   completeInputData: () => boolean;
   validPropertyValues: () => boolean;
   validInputData: () => boolean;
-  invalidInputData: () => ApplicationFailedResponse;
+  invalidInputData: () => ApplicationFailedResponseOutput;
   invalidEmail: (email: string) => boolean;
   invalidName: (name: string) => boolean;
   invalidAge: (age: number) => boolean;

@@ -4,7 +4,7 @@ export interface ApplicationGeneralResponse {
   message: string;
 }
 
-export interface DataSourceResponse<T> {
+export interface DataSourceResponseOutput<T> {
   httpStatusCode: number;
   data: {
     message: string;
@@ -12,7 +12,7 @@ export interface DataSourceResponse<T> {
   };
 }
 
-export interface ApplicationFailedResponse {
+export interface ApplicationFailedResponseOutput {
   httpStatusCode: number;
   data: {
     message: string;
