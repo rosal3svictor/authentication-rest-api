@@ -1,4 +1,4 @@
-import { COLLECTION } from '.';
+import { COLLECTION } from './users';
 
 describe('Mongo DB Collection - User', () => {
   it('It should be of type "Collection<User>"', () => {
