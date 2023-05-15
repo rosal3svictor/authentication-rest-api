@@ -13,7 +13,7 @@ const mockCollection = {
   findOne: jest.fn(),
 };
 
-describe('UsersRepository', () => {
+describe('Repository - Users', () => {
   beforeEach(() => {
     // Mock USERS.INFRASTRUCTURE.COLLECTION object
     const mockCollection = {
