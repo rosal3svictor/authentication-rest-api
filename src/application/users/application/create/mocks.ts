@@ -1,5 +1,5 @@
 import {
-  type CrudValidationImplementation,
+  type GeneralImplementation,
   type CrudImplementation,
   type CrudResponsesImplementation,
   type CrudValidationResponsesImplementation,
@@ -47,8 +47,23 @@ export class MockCrudValidationResponsesImplementation
 // @ts-expect-error: This is not introducing a bug
 export class MockCrudValidationImplementation
   // @ts-expect-error: This is not introducing a bug
-  implements jest.MockedClass<CrudValidationImplementation>
+  implements jest.MockedClass<GeneralImplementation>
 {
   isValidEmail = jest.fn().mockReturnValue(true);
   areEqual = jest.fn().mockReturnValue(true);
+}
+
+// @ts-expect-error: This is not introducing a bug
+export class MockRecordPreExistsResponseImplementation
+  // @ts-expect-error: This is not introducing a bug
+  implements jest.MockedClass<CrudResponsesImplementation>
+{
+  found = jest.fn().mockImplementation(() => ({
+    // Create a mock implementation for DataSourceResponseOutput
+    // based on the provided dataSource argument
+  }));
+
+  notFound = jest.fn().mockImplementation(() => ({
+    // Create a mock implementation for ApplicationFailedResponseOutput
+  }));
 }

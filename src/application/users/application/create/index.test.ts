@@ -11,6 +11,7 @@ import {
   MockCrudResponsesImplementation,
   MockCrudValidationResponsesImplementation,
   MockCrudValidationImplementation,
+  MockRecordPreExistsResponseImplementation,
 } from './mocks';
 
 import { CreateUseCase } from '.';
@@ -40,6 +41,7 @@ describe('Use Case - Create User', () => {
     | MockCrudResponsesImplementation
     | CrudResponsesImplementation;
   let crudValidationResponsesImplementationMock;
+  let recordPreExistsResponseImplementationMock;
   let createUseCase: ReturnType<() => CreateUseCase>;
   let user: User;
 
@@ -48,12 +50,14 @@ describe('Use Case - Create User', () => {
     crudValidationImplementationMock = new MockCrudValidationImplementation();
     crudResponsesImplementationMock = new MockCrudResponsesImplementation();
     crudValidationResponsesImplementationMock = new MockCrudValidationResponsesImplementation();
+    recordPreExistsResponseImplementationMock = new MockRecordPreExistsResponseImplementation();
 
     createUseCase = new CreateUseCase(
       crudImplementationMock,
       crudValidationImplementationMock,
       crudResponsesImplementationMock,
       crudValidationResponsesImplementationMock,
+      recordPreExistsResponseImplementationMock,
     );
 
     user = {

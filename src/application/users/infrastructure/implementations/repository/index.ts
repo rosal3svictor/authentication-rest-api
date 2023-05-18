@@ -1,4 +1,4 @@
-import { type User, type CrudImplementation, USERS } from '@application/users';
+import { type User, USERS, type CrudImplementation } from '@application/users';
 import bcrypt from 'bcrypt';
 
 export class UsersRepository implements CrudImplementation {

@@ -1,5 +1,5 @@
-import { RecordPreExists } from './RecordPreExists';
-import { CreateDataIsValid } from './CreateDataIsValid';
+import { RecordPreExists } from './db/RecordPreExists';
+import { CreateDataIsValid } from './crud/CreateDataIsValid';
 
 export const BUSINESS_LOGIC = {
   RECORD_PRE_EXSISTS: RecordPreExists,

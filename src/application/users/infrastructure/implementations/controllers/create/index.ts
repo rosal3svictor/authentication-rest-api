@@ -11,6 +11,7 @@ async function createController(req: Request, res: Response): Promise<void> {
       new USERS.INFRASTRUCTURE.IMPLEMENTATIONS.VALIDATION_CRITERIA(),
       new USERS.INFRASTRUCTURE.IMPLEMENTATIONS.RESPONSES.CRUD_RESPONSES(),
       new USERS.INFRASTRUCTURE.IMPLEMENTATIONS.RESPONSES.CRUD_VALIDATION(),
+      new USERS.INFRASTRUCTURE.IMPLEMENTATIONS.RESPONSES.RECORD_PRE_EXISTS(),
     ).invoke(req.body);
 
     res.status(useCaseCreateUser.httpStatusCode).json({ data: useCaseCreateUser.data });

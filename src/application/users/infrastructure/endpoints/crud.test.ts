@@ -1,7 +1,7 @@
 import express, { type Express } from 'express';
 import request from 'supertest';
 
-import ROUTER from './routes'; // Replace with the actual file path
+import ROUTER from './crud'; // Replace with the actual file path
 
 jest.mock('@application/users/infrastructure/implementations/controllers', () => ({
   CONTROLLER: {

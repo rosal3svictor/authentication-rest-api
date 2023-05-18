@@ -8,7 +8,7 @@ dist
 .env
 
 # Testing Related
-jest.config.js
+jest.config.ts
 coverage
 
 # File Systems

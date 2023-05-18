@@ -1,12 +1,13 @@
 import { APPLICATION } from './application';
 import { BUSINESS_LOGIC } from './domain';
-import { UserValidation } from './infrastructure/implementations/validations';
+import { UserValidation } from './infrastructure/implementations';
 import {
   BUSINESS_RULES_RESPONSES,
   CRUD_RESPONSES,
   COLLECTION,
   CONTROLLER,
-  ROUTER,
+  CRUD_ROUTER,
+  AUTH_ROUTER,
   UsersRepository,
 } from './infrastructure';
 
@@ -20,7 +21,8 @@ export const USERS = {
   INFRASTRUCTURE: {
     COLLECTION,
     ENDPOINTS: {
-      ROUTER,
+      CRUD_ROUTER,
+      AUTH_ROUTER,
     },
     IMPLEMENTATIONS: {
       CONTROLLER,

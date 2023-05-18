@@ -1,30 +1,34 @@
 import { type DataSourceResponseOutput, type ApplicationFailedResponseOutput } from '@domain';
 import {
   USERS,
-  type CrudValidationImplementation,
+  type GeneralImplementation,
   type User,
   type CrudImplementation,
   type CrudResponsesImplementation,
   type CrudValidationResponsesImplementation,
+  type RecordPreExistsResponsesImplementation,
 } from '@application/users';
 import { ADAPTER } from '@application/adapters';
 
 export class CreateUseCase {
   private readonly _crudImplementation: CrudImplementation;
-  private readonly _crudValidationImplementation: CrudValidationImplementation;
+  private readonly _crudValidationImplementation: GeneralImplementation;
   private readonly _crudResponsesImplementation: CrudResponsesImplementation;
   private readonly _crudValidationResponsesImplementation: CrudValidationResponsesImplementation;
+  private readonly _recordPreExistsResponseImplementation: RecordPreExistsResponsesImplementation;
 
   constructor(
     crudImplementation: CrudImplementation,
-    crudValidationImplementation: CrudValidationImplementation,
+    crudValidationImplementation: GeneralImplementation,
     crudResponsesImplementation: CrudResponsesImplementation,
     crudValidationResponsesImplementation: CrudValidationResponsesImplementation,
+    recordPreExistsResponseImplementation: RecordPreExistsResponsesImplementation,
   ) {
     this._crudImplementation = crudImplementation;
     this._crudValidationImplementation = crudValidationImplementation;
     this._crudResponsesImplementation = crudResponsesImplementation;
     this._crudValidationResponsesImplementation = crudValidationResponsesImplementation;
+    this._recordPreExistsResponseImplementation = recordPreExistsResponseImplementation;
   }
 
   async invoke(
@@ -39,6 +43,7 @@ export class CreateUseCase {
     if (INCOMING_USER_DATA_IS_VALID.invoke()) {
       const recordPreExists = await new USERS.DOMAIN.BUSINESS_LOGIC.RECORD_PRE_EXSISTS(
         this._crudImplementation,
+        this._recordPreExistsResponseImplementation,
       ).invoke(user.email);
 
       if (recordPreExists.passed) {

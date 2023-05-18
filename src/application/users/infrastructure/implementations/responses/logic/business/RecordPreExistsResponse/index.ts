@@ -1,9 +1,10 @@
 import { HELPER } from '@infrastructure/helpers';
 import { REDIRECTION_HTTP_STATUS_CODE, SUCCESSFUL_HTTP_STATUS_CODE } from '@domain';
 
+import type { RecordPreExistsResponsesImplementation } from '@application/users';
 import type { ApplicationGeneralResponse } from 'domain/Adapters';
 
-export class RecordPreExistsResponse {
+export class RecordPreExistsResponse implements RecordPreExistsResponsesImplementation {
   found(): ApplicationGeneralResponse {
     const process = {
       httpStatusCode: REDIRECTION_HTTP_STATUS_CODE.SEE_OTHER,

@@ -1,14 +1,14 @@
 import { CreateDataIsValid } from '.';
 
 import type {
-  CrudValidationImplementation,
+  GeneralImplementation,
   CrudValidationResponsesImplementation,
   User,
 } from '@application/users/domain';
 
 describe('Business Logic - CreateDataIsValid', () => {
   let mockUser: User;
-  let mockCrudValidationImplementation: CrudValidationImplementation;
+  let mockCrudValidationImplementation: GeneralImplementation;
   let mockCrudValidationResponsesImplementation: CrudValidationResponsesImplementation;
 
   beforeEach(() => {

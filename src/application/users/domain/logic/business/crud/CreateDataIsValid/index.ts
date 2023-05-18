@@ -1,18 +1,18 @@
 import type {
   User,
-  CrudValidationImplementation,
   CrudValidationResponsesImplementation,
+  GeneralImplementation,
 } from '@application/users';
 import type { ApplicationFailedResponseOutput } from 'domain/Adapters';
 
 export class CreateDataIsValid {
   private readonly _user: User;
-  private readonly _crudValidationImplementation: CrudValidationImplementation;
+  private readonly _crudValidationImplementation: GeneralImplementation;
   private readonly _crudValidationResponsesImplementation: CrudValidationResponsesImplementation;
 
   constructor(
     user: User,
-    crudValidationImplementation: CrudValidationImplementation,
+    crudValidationImplementation: GeneralImplementation,
     crudValidationResponsesImplementation: CrudValidationResponsesImplementation,
   ) {
     this._user = user;
