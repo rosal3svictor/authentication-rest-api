@@ -1,4 +1,4 @@
 export * from './GeneralImplementation';
 export * from './auth';
 export * from './crud';
-export * from './db';
+export * from './dbInteraction';

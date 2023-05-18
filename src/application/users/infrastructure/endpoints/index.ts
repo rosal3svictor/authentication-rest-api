@@ -1,2 +1,7 @@
-export { default as CRUD_ROUTER } from './crud';
-export { default as AUTH_ROUTER } from './authentication';
+import AUTH_ROUTER from './authentication';
+import CRUD_ROUTER from './crud';
+
+export const ENDPOINTS = {
+  AUTH_ROUTER,
+  CRUD_ROUTER,
+};

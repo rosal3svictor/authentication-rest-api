@@ -1,6 +1,6 @@
 import { type User } from '@application/users';
 
-import type { DbQueryImplementation } from '../db/DbQueryImplementation';
+import type { DbQueryImplementation } from '../dbInteraction/DbQueryImplementation';
 
 /**
  * This is the contract that is going to be signed off in the infrastructure

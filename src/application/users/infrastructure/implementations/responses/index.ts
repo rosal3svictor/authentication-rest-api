@@ -1,1 +1,6 @@
-export * from './logic';
+import { BUSINESS_RULES_RESPONSES, CRUD_RESPONSES } from './logic';
+
+export const RESPONSES = {
+  ...BUSINESS_RULES_RESPONSES,
+  CRUD_RESPONSES,
+};
