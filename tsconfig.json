@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Language and Environment */
+    "target": "ES2016",
+
+    /* Modules */
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "paths": {
+      "@core/application/*": ["core/application/*"],
+      "@core/domain": ["core/domain"],
+      "@core/infrastructure/*": ["core/infrastructure/*"],
+      "@entities/*": ["entities/*"]
+    },
+    "resolveJsonModule": true,
+
+    /* Emit */
+    "outDir": "dist",
+
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+
+    /* Completeness */
+    "skipLibCheck": true,
+
+    /* Additional Checks */
+    "noUnusedParameters": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
