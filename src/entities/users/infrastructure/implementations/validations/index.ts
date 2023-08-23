@@ -1,1 +1,1 @@
-export * from './userEntity.validation';
+export * from './UserValidation'

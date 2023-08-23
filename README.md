@@ -1,11 +1,15 @@
 <div align="center">
     <img src="./public/repo-logo.png" width="80%" />
-    <h1> Clean Architecture Application Sample </h1>
+    <h1> Authentication API </h1>
 </div>
 
-This repository was created with the intention of providing developers with a sample clean architecture app for projects using NodeJS-ExpressJS-TypeScript.
+This repository was created with the intention of providing developers with a sample of an authentication API. It will
+also help youo to manage your users. For the moment, the use cases it covers:
 
-By, sample it is meant basic or starter application that could be used as a template for kicking-off a project, which can become an enhanced version of this one driven by the future project's nature and what it is conceived best for it. However, this sample is stated to be a guide to perform knowledge sharing with other developers who don't know about this software architecture.
+- Create
+- Update
+- Loging
+- Logout
 
 # Development Tooling
 
@@ -99,6 +103,5 @@ When executed this will prompt you to define:
 # Project's Software Architecture Diagram
 
 <div align="center">
-  <img src="./public/Back-End%20Architecture.svg">
+  <img src="./public/Project Architecture.png">
 </div>
-

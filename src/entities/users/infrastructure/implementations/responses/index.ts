@@ -1,1 +1,1 @@
-export * from './logic';
+export * as Responses from './responses'

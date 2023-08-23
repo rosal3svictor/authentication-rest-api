@@ -9,12 +9,6 @@
     "module": "CommonJS",
     "rootDir": "./src",
     "baseUrl": "./src",
-    "paths": {
-      "@core/application/*": ["core/application/*"],
-      "@core/domain": ["core/domain"],
-      "@core/infrastructure/*": ["core/infrastructure/*"],
-      "@entities/*": ["entities/*"]
-    },
     "resolveJsonModule": true,
 
     /* Emit */

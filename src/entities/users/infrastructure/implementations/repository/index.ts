@@ -1,1 +1,1 @@
-export * from './userEntity.repository';
+export * as Repository from './Crud'

@@ -1,21 +1,9 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "jest": true
+    "es2021": true
   },
-  "extends": [
-    "standard-with-typescript",
-    "plugin:prettier/recommended",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "eslint-plugin-tsdoc",
-    "prettier"
-  ],
+  "extends": "standard-with-typescript",
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -23,58 +11,11 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "tsdoc/syntax": "error",
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "all",
-        "singleQuote": true,
-        "printWidth": 100,
-        // below line only for windows users facing CLRF and eslint/prettier error
-        // non windows users feel free to delete it
-        "endOfLine": "auto"
-      }
-    ],
-    "@typescript-eslint/no-floating-promises": "warn",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/no-misused-promises": "warn",
-    "no-debugger": "off",
-    "no-use-before-define": "off",
-    "no-alert": "off",
-    "no-await-in-loop": "off",
-    "no-return-assign": ["error", "except-parens"],
-    "no-unused-vars": [
-      1,
-      {
-        "ignoreRestSiblings": true,
-        "argsIgnorePattern": "res|next|∧err"
-      }
-    ],
-    "prefer-const": [
-      "error",
-      {
-        "destructuring": "all"
-      }
-    ],
-    "arrow-body-style": [2, "as-needed"],
-    "no-unused-expressions": [
-      2,
-      {
-        "allowTaggedTemplates": true
-      }
-    ],
-    "import/prefer-default-export": "off",
-    "func-names": "off",
-    "max-len": ["error", { "code": 100 }],
-    "import/extensions": "off",
-    "consistent-return": "off",
-    "quotes": [
-      2,
-      "single",
-      {
-        "avoidEscape": true,
-        "allowTemplateLiterals": true
-      }
-    ],
+    "@typescript-eslint/strict-boolean-expressions": "warn",
     "import/order": [
       "error",
       {
@@ -91,16 +32,7 @@
         "newlines-between": "always"
       }
     ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "*/.test.ts",
-          "*/.test.tsx",
-          "*/.spec.ts",
-          "*/.spec.tsx"
-        ]
-      }
-    ]
+    "indent": "off",
+    "@typescript-eslint/indent": "off"
   }
 }

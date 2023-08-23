@@ -1,3 +1,3 @@
-export * from './collections';
-export * from './endpoints';
-export * from './implementations';
+export * from './instances'
+export * from './entry-points'
+export * from './implementations'

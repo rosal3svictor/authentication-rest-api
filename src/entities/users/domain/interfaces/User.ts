@@ -1,7 +1,7 @@
-export interface User {
-  id?: string;
-  email: string;
-  password: string;
-  name: string;
-  age: number;
+import { type AuthCredentials } from './AuthCredentials'
+import { type UniqueFields } from './UniqueFields'
+
+export interface User extends AuthCredentials, Partial<UniqueFields> {
+  name: string
+  age: number
 }

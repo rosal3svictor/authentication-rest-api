@@ -1,5 +1,1 @@
-import { RefineUserEntity } from './RefineUserEntity';
-
-export const ADAPTERS = {
-  RefineUserEntity,
-};
+export * as ADAPTER from './userEntity.adapters'
