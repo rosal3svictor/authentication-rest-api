@@ -1,23 +1,23 @@
-import { Controllers } from 'entities/users/infrastructure/entry-points/controllers'
-import { Router } from 'express'
+import { Router as ExpressRouter } from 'express'
 
-import { Middlewares } from '../middlewares'
+import { Controller } from '../controllers'
+import { Middleware } from '../middlewares'
 
-export const router = Router()
+export const Router = ExpressRouter()
 
-router.post('/auth', Controllers.authenticate)
-router.get('/refresh', Controllers.refreshToken)
-router.get('/logout', Controllers.logOut)
-router.post('/', Controllers.create)
+Router.post('/auth', Controller.authenticate)
+Router.get('/refresh', Controller.refreshToken)
+Router.get('/logout', Controller.logOut)
+Router.post('/', Controller.create)
 
-router.use(Middlewares.verifyToken)
+Router.use(Middleware.verifyToken)
 
-router.get('/', (_req, res) => {
+Router.get('/', (_req, res) => {
   res.json({ message: 'Obteniendo el recurso de usuarios' })
 })
-router.put('/', (_req, res) => {
+Router.put('/', (_req, res) => {
   res.json({ message: 'Modificando el recurso de usuarios' })
 })
-router.delete('/', (_req, res) => {
+Router.delete('/', (_req, res) => {
   res.json({ messaje: 'Eliminando un nuevo recurso de usuarios' })
 })

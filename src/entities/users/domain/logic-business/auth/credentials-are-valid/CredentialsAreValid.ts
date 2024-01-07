@@ -1,6 +1,6 @@
 import { type Response } from 'core/domain'
 
-import type { ImplLogic, Interfaces } from 'entities/users/domain'
+import type { ImplLogic, Interfaces } from '../../../../domain'
 
 export class CredentialsAreValid {
   private readonly _credentials: Interfaces.AuthCredentials

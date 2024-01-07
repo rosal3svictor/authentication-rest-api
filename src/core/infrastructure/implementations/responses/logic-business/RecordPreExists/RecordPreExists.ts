@@ -1,5 +1,5 @@
-import { Utils } from 'core/infrastructure/implementations/utils'
-import { Enum, type Response } from 'core/domain'
+import { Enum, type Response } from '../../../../../domain'
+import { Util } from '../../../utils'
 
 export class RecordPreExists {
   found(): Response.ApplicationGeneral {
@@ -9,7 +9,7 @@ export class RecordPreExists {
       message: 'The provided record has previously been registered'
     }
 
-    Utils.AppResponseLog.warning(
+    Util.AppResponseLog.warning(
       'BUSINESS_LOGIC - RECORD_PRE_EXISTS: The provided record has previously been registered'
     )
 
@@ -24,7 +24,7 @@ export class RecordPreExists {
         our records. The process can continue.`
     }
 
-    Utils.AppResponseLog.info(process.message)
+    Util.AppResponseLog.info(process.message)
 
     return process
   }

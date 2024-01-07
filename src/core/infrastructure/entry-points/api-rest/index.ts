@@ -1,1 +1,1 @@
-export * from './APIRest'
+export * from './ApiRest'

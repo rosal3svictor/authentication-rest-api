@@ -13,8 +13,7 @@
     "stop-databases": "brew services stop mongodb-community@7.0",
     "prepare": "husky install",
     "commit:changes": "git add -A && cz",
-    "ci": "pnpm install --frozen-lockfile",
-    "fff": "eslint"
+    "ci": "pnpm install --frozen-lockfile"
   },
   "keywords": [],
   "author": "Victor Rosales",
@@ -26,6 +25,8 @@
     "cors": "2.8.5",
     "dotenv": "16.3.1",
     "express": "4.18.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.8.1",
     "helmet": "7.1.0",
     "jsonwebtoken": "9.0.2",
     "lodash": "4.17.21",

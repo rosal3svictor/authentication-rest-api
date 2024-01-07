@@ -1,6 +1,6 @@
-import { type Response } from 'core/domain'
+import { type Response } from '../../../domain'
 
-export function applicationFailedResponse(
+export function ApplicationFailedResponse(
   httpStatusCode: number,
   message: string
 ): Response.ApplicationFailedOutput {

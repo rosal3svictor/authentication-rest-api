@@ -1,4 +1,4 @@
-import { type Response } from 'core/domain'
+import { type Response } from '../../domain'
 
 /**
  * This is the contract that is going to be signed off in the infrastructure

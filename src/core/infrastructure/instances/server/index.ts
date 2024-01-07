@@ -1,1 +1,1 @@
-export * from './coreEntity.servers'
+export * from './servers'

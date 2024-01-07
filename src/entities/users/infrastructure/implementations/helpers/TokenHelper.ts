@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import type { Interfaces, ImplLogic } from 'entities/users/domain'
+import type { Interfaces, ImplLogic } from '../../../domain'
 
 export class TokenGenerator implements ImplLogic.TokenGenerator {
   generateTokens(property: string): Interfaces.Tokens {

@@ -1,1 +1,1 @@
-export * as BusinessLogic from './coreEntity.logic-business'
+export * from './RecordPreExists'

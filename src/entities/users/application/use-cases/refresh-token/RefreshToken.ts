@@ -1,7 +1,8 @@
-import { type Interfaces, type ImplLogic } from 'entities/users/domain'
 import { type Response as CoreResponse } from 'core/domain'
-import { Adapter as CoreAdapter } from 'core/application'
+import { Adapter as CoreAdapter } from 'core/application/adapters'
 import { type Request } from 'express'
+
+import { type Interfaces, type ImplLogic } from '../../../domain'
 
 export class RefreshToken {
   private readonly _repository: ImplLogic.CrudRepository

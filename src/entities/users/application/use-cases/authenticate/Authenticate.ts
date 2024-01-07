@@ -1,11 +1,12 @@
+import { BusinessLogic as CoreBusinessLogic, type Response as CoreResponse } from 'core/domain'
+import { Adapter as CoreAdapter } from 'core/application/adapters'
+import { type Response } from 'express'
+
 import {
   type Interfaces,
   type ImplLogic,
   BusinessLogic as UserBusinessLogic
-} from 'entities/users/domain'
-import { BusinessLogic as CoreBusinessLogic, type Response as CoreResponse } from 'core/domain'
-import { Adapter as CoreAdapter } from 'core/application'
-import { type Response } from 'express'
+} from '../../../domain'
 
 export class Authenticate {
   private readonly _repository: ImplLogic.CrudRepository

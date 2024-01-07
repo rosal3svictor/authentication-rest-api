@@ -1,1 +1,5 @@
-export * from './db-collection'
+import { Collection } from './db-collection'
+
+export const Instance = {
+    Collection
+}

@@ -1,3 +1,3 @@
 export * from './interfaces'
-export * from './logic-business'
-export * from './logic-implementation'
+export * as BusinessLogic from './logic-business'
+export * as ImplLogic from './logic-implementation'

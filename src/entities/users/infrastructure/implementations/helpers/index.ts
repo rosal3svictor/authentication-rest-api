@@ -1,1 +1,5 @@
-export * as Helpers from './helpers'
+import { TokenGenerator } from './TokenHelper'
+
+export const Helpers = {
+    TokenGenerator
+}

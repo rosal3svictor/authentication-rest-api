@@ -1,4 +1,4 @@
-import { type Interfaces } from 'entities/users/domain'
+import { type Interfaces } from '../../../domain'
 
 export function refineUserEntity(user: Interfaces.User): Omit<Interfaces.User, 'password'> {
   return {

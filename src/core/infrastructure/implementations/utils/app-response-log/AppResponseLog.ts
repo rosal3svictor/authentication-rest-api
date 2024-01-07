@@ -1,5 +1,6 @@
 import chalk from 'chalk'
-import { Enum, type Log } from 'core/domain'
+
+import { Enum, type Log } from '../../../../domain'
 
 /**
  * Defines the background color for successful output.

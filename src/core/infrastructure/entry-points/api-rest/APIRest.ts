@@ -1,22 +1,24 @@
-import { Utils } from 'core/infrastructure'
-import { ExpressServer } from 'core/infrastructure/instances/server'
+import { ExpressServers } from '../../instances'
+import { Implementation } from '../../implementations'
 
-export class APIRest {
-  server?: ExpressServer
+import { endpoints } from './router'
+
+export class ApiRest {
+  server?: ExpressServers.RestServer
 
   async start(): Promise<void> {
     const port = process.env.SERVER_PORT as string
 
-    this.server = new ExpressServer(port)
+    this.server = new ExpressServers.RestServer(port, endpoints)
 
     try {
       await this.server.listen().then(function () {
-        Utils.AppResponseLog.success('API REST Services are up and running\n\n')
+        Implementation.Util.AppResponseLog.success('API REST Services are up and running\n\n')
       })
     } catch (error) {
       await this.server.stop()
 
-      Utils.AppResponseLog.exception(
+      Implementation.Util.AppResponseLog.exception(
         `An unhandled error has occured when starting ExpressServer. Details: ${error}`
       )
     }

@@ -1,21 +1,30 @@
 import express from 'express'
-import { Endpoints, Middlewares } from 'core/infrastructure/entry-points'
-import { Utils } from 'core/infrastructure'
 import cookieParser from 'cookie-parser'
+
+import { Middlewares, type HttpConfig } from '../../../entry-points'
+import { Implementation } from '../../../implementations'
 
 import type * as http from 'http'
 
-export class ExpressServer {
+export class GraphqlServer {
   private readonly _port: string
   private readonly _app: express.Express
   private _httpServer?: http.Server
 
-  constructor(port: string) {
+  constructor(port: string, httpConfiguration: typeof HttpConfig) {
     this._port = port
     this._app = express()
     this._app.use(Middlewares.cors)
     this._app.use(Middlewares.morgan)
-    this._app.use(Middlewares.helmet)
+    /**
+     * Usage of helmet in default configuration blocks graphql playground to open
+     *
+     * @see {@link https://stackoverflow.com/questions/66614351/usage-of-helmet-in-default-configuration-blocks-graphql-playground-to-open}
+     */
+    this._app.use(Middlewares.helmet({
+      contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false
+    }))
+
     /**
      * It is a built-in middleware function in the Express framework for Node.js
      *
@@ -40,7 +49,7 @@ export class ExpressServer {
     /** Parse cookies */
     this._app.use(cookieParser())
 
-    this._app.use('/api', Endpoints)
+    this._app.use('/graphql', httpConfiguration)
 
     this._app.use(Middlewares.resourceNotFound)
     this._app.use(Middlewares.internalServerError)
@@ -49,7 +58,7 @@ export class ExpressServer {
   async listen(): Promise<void> {
     await new Promise<void>((resolve) => {
       this._httpServer = this._app.listen(this._port, () => {
-        Utils.AppResponseLog.success(`App is being served on http://localhost:${this._port}\n`)
+        Implementation.Util.AppResponseLog.success(`App is being served on http://localhost:${this._port}\n`)
         resolve()
       })
     })

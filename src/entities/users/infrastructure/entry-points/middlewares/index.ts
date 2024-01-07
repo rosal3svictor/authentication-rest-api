@@ -1,1 +1,5 @@
-export * as Middlewares from './userEntity.middlewares'
+import { verifyToken } from './verify-token'
+
+export const Middleware = {
+    verifyToken
+}

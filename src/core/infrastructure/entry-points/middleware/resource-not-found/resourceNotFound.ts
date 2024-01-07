@@ -1,4 +1,4 @@
-import { Enum } from 'core/domain'
+import { Enum } from '../../../../domain'
 
 import type { Request, Response, NextFunction } from 'express'
 

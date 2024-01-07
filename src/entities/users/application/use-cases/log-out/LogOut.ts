@@ -1,6 +1,7 @@
-import { type ImplLogic } from 'entities/users/domain'
 import { type Response as CoreResponse } from 'core/domain'
-import { Adapter as CoreAdapter } from 'core/application'
+import { Adapter as CoreAdapter } from 'core/application/adapters'
+
+import { type ImplLogic } from '../../../domain'
 
 import type { Request, Response } from 'express'
 

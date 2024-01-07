@@ -1,11 +1,12 @@
 import { type Response, BusinessLogic as CoreBusinessLogic } from 'core/domain'
-import { Adapter as CoreAdapter } from 'core/application'
-import { ADAPTER as UserAdapter } from 'entities/users/application'
+import { Adapter as CoreAdapter } from 'core/application/adapters'
+
+import { Adapter as UserAdapter } from '../../../application/adapters'
 import {
   type ImplLogic,
   type Interfaces,
   BusinessLogic as UserBusinessLogic
-} from 'entities/users/domain'
+} from '../../../domain'
 
 export class Create {
   private readonly _repository: ImplLogic.CrudRepository
@@ -27,7 +28,7 @@ export class Create {
   ): Promise<
     | Response.DataSourceOutput<Interfaces.User>
     | Response.ApplicationFailedOutput
-    > {
+  > {
     const INCOMING_USER_DATA_IS_VALID = new UserBusinessLogic.CreateDataIsValid(
       user,
       this._validationCriteria,

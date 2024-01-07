@@ -1,21 +1,22 @@
-import { Collection } from 'entities/users/infrastructure'
 import bcrypt from 'bcrypt'
 import { type Filter } from 'mongodb'
 
-import type { Interfaces, ImplLogic } from 'entities/users/domain'
+import { Instance } from '../../../infrastructure/instances'
+
+import type { Interfaces, ImplLogic } from '../../../domain'
 
 export class Crud implements ImplLogic.CrudRepository {
   async save(user: Interfaces.User): Promise<void> {
     const hashedPassword = await bcrypt.hash(user.password, 10)
 
-    await Collection.insertOne({
+    await Instance.Collection.insertOne({
       ...user,
       password: hashedPassword
     })
   }
 
   async get(property: keyof Interfaces.User, value: string): Promise<Interfaces.User> {
-    const record = await Collection.findOne({ [property]: value })
+    const record = await Instance.Collection.findOne({ [property]: value })
 
     const user = {
       age: record?.age ?? 0,
@@ -32,11 +33,11 @@ export class Crud implements ImplLogic.CrudRepository {
     criteria: Filter<Interfaces.User>
     data: Interfaces.User
   }): Promise<void> {
-    await Collection.updateOne(args.criteria, { $set: args.data })
+    await Instance.Collection.updateOne(args.criteria, { $set: args.data })
   }
 
   async recordPreExists(email: string): Promise<boolean> {
-    const recordFound = await Collection.findOne({
+    const recordFound = await Instance.Collection.findOne({
       email
     })
 

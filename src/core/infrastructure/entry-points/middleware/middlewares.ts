@@ -10,7 +10,7 @@ export const Middlewares = {
     origin: [`http://localhost:${process.env.SERVER_PORT ?? 3000}`]
   }),
   morgan: morgan('dev'),
-  helmet: helmet(),
+  helmet,
   resourceNotFound,
   internalServerError
 }

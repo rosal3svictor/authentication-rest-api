@@ -1,13 +1,17 @@
-import { UseCases } from 'entities/users/application'
-import { Repository, Responses, UserValidation, Helpers } from 'entities/users/infrastructure'
-import { Utils } from 'core/infrastructure'
+import { Implementation as CoreImplementation } from 'core/infrastructure/implementations'
 import { Enum } from 'core/domain'
+
+import { UseCase } from '../../../../application/use-cases'
+import { Implementation } from '../../../../infrastructure/implementations'
 
 import type { Request, Response } from 'express'
 
 export async function authenticate(req: Request, res: Response): Promise<void> {
+  const { Repository, Helpers, UserValidation, Responses } = Implementation
+  const { Authenticate } = UseCase
+
   try {
-    const useCaseAuthUser = await new UseCases.Authenticate(
+    const useCaseAuthUser = await new Authenticate(
       new Repository.Crud(),
       new Helpers.TokenGenerator(),
       new UserValidation(),
@@ -17,7 +21,7 @@ export async function authenticate(req: Request, res: Response): Promise<void> {
 
     res.status(useCaseAuthUser.httpStatusCode).json({ data: useCaseAuthUser.data })
   } catch (error) {
-    Utils.AppResponseLog.exception(
+    CoreImplementation.Util.AppResponseLog.exception(
       `An unhandled error has occurred when authenticating the user.
        Details: ${error as string}`
     )

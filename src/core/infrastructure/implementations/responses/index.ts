@@ -1,1 +1,1 @@
-export * from './coreEntity.responses'
+export * from './responses'

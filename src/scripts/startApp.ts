@@ -2,12 +2,12 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import { Utils } from '../core/infrastructure'
+import { Implementation } from '../core/infrastructure/implementations'
 
 const envFile = path.join(__dirname, '../../') + '.env'
 
 if (fs.existsSync(envFile)) {
-  Utils.AppResponseLog.info('Starting the app')
+  Implementation.Util.AppResponseLog.info('Starting the app')
   execSync(
     'ts-node-dev -r tsconfig-paths/register ./src/scripts/startApiRestServices.ts',
     {
@@ -16,5 +16,5 @@ if (fs.existsSync(envFile)) {
   )
 }
 
-Utils.AppResponseLog.exception('Please, create your .env file, it is required to continue\n')
-Utils.AppResponseLog.info('App was stopped\n')
+Implementation.Util.AppResponseLog.exception('Please, create your .env file, it is required to continue\n')
+Implementation.Util.AppResponseLog.info('App was stopped\n')

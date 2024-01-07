@@ -33,6 +33,8 @@
       }
     ],
     "indent": "off",
-    "@typescript-eslint/indent": "off"
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/no-unsafe-argument": "off"
   }
 }

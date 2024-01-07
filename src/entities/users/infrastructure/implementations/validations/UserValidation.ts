@@ -1,10 +1,10 @@
-import { Utils } from 'core/infrastructure/implementations'
+import { Implementation } from 'core/infrastructure/implementations'
 
-import type { ImplLogic } from 'entities/users/domain'
+import type { ImplLogic } from '../../../domain'
 
 export class UserValidation implements ImplLogic.CrudValidation {
   isValidEmail(email: string): boolean {
-    return Utils.isValidEmail(email)
+    return Implementation.Util.isValidEmail(email)
   }
 
   isValidPassword(password: string): boolean {
@@ -12,6 +12,6 @@ export class UserValidation implements ImplLogic.CrudValidation {
   }
 
   areEqual(valueOne: string[], valueTwo: string[]): boolean {
-    return Utils.isEqual(valueOne, valueTwo)
+    return Implementation.Util.isEqual(valueOne, valueTwo)
   }
 }

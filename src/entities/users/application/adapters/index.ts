@@ -1,1 +1,5 @@
-export * as ADAPTER from './userEntity.adapters'
+import { refineUserEntity } from './refine-user-entity'
+
+export const Adapter = {
+    refineUserEntity
+}

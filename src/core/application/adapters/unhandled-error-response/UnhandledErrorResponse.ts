@@ -1,7 +1,6 @@
-import { type Response, Enum } from 'core/domain'
-import { Utils } from 'core/infrastructure/implementations/utils'
-
-import { applicationFailedResponse } from '../application-failed-response'
+import { Implementation } from '../../../infrastructure/implementations'
+import { type Response, Enum } from '../../../domain'
+import { ApplicationFailedResponse } from '../application-failed-response'
 
 export class UnhandledErrorResponse {
   private readonly functionName: string
@@ -13,11 +12,11 @@ export class UnhandledErrorResponse {
   }
 
   invoke(): Response.ApplicationFailedOutput {
-    Utils.AppResponseLog.exception(
+    Implementation.Util.AppResponseLog.exception(
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`
     )
 
-    return applicationFailedResponse(
+    return ApplicationFailedResponse(
       Enum.SERVER_ERROR_HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR,
       `An unhandled error has happened on ${this.functionName}. Details: ${this.message}`
     )

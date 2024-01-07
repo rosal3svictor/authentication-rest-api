@@ -1,1 +1,1 @@
-export * from './coreEntity.middlewares'
+export * from './middlewares'

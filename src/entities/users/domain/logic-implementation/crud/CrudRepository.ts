@@ -1,5 +1,6 @@
-import { type Interfaces } from 'entities/users/domain'
 import { type ImplLogic } from 'core/domain'
+
+import { type Interfaces } from '../../../domain'
 
 /**
  * This is the contract that is going to be signed off in the infrastructure

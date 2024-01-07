@@ -1,4 +1,4 @@
-import type { Interfaces, ImplLogic } from 'entities/users/domain'
+import type { Interfaces, ImplLogic } from '../../../../domain'
 import type { Response } from 'core/domain'
 
 export class CreateDataIsValid {

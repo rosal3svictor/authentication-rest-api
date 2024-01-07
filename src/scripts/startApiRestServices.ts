@@ -1,13 +1,19 @@
 import * as dotenv from 'dotenv'
-import { APIRest } from 'core/infrastructure/entry-points'
-import { Utils } from 'core/infrastructure'
+import { ApiRest, ApiGraphql } from 'core/infrastructure/entry-points'
+import { Implementation } from 'core/infrastructure/implementations'
 
 try {
   dotenv.config()
 
-  void new APIRest().start()
+  const apiArchitecture = process.env.API_ARCHITECTURE
+
+  if (apiArchitecture === 'rest') {
+    void new ApiRest().start()
+  } else {
+    void new ApiGraphql().start()
+  }
 } catch (err) {
-  Utils.AppResponseLog.exception(
-    `An unhandled error has occured whren starting APIRestServices. Details: ${err}`
+  Implementation.Util.AppResponseLog.exception(
+    `An unhandled error has occured whren starting ApiRestServices. Details: ${err}`
   )
 }

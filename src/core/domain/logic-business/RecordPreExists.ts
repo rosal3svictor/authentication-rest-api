@@ -1,6 +1,6 @@
-import { BusinessRulesResponses } from 'core/infrastructure/implementations/responses'
+import { Implementation } from '../../infrastructure/implementations'
 
-import type { ImplLogic, Response } from 'core/domain'
+import type { ImplLogic, Response } from '../../domain'
 
 export class RecordPreExists<T> {
   private readonly _repository: Pick<ImplLogic.GeneralRepositoryMethods<T>, 'recordPreExists'>
@@ -13,7 +13,7 @@ export class RecordPreExists<T> {
     const recordPreExists = await this._repository.recordPreExists(input)
 
     return recordPreExists
-      ? new BusinessRulesResponses.RecordPreExists().found()
-      : new BusinessRulesResponses.RecordPreExists().notFound()
+      ? new Implementation.BusinessRulesResponses.RecordPreExists().found()
+      : new Implementation.BusinessRulesResponses.RecordPreExists().notFound()
   }
 }
