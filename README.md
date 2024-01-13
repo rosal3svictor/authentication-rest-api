@@ -11,6 +11,10 @@ also help youo to manage your users. For the moment, the use cases it covers:
 - Loging
 - Logout
 
+# Project Resources
+
+- [Technical Guidelines](https://rosalesvictordev.atlassian.net/wiki/spaces/SD/pages/229454/Technical+Guidelines)
+
 # Development Tooling
 
 [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)
