@@ -1,7 +1,8 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import { expressMiddleware } from '@apollo/server/express4'
 
-import { Middlewares, type HttpConfig } from '../../../entry-points'
+import { Middlewares } from '../../../entry-points'
 import { Implementation } from '../../../implementations'
 
 import type * as http from 'http'
@@ -11,7 +12,7 @@ export class GraphqlServer {
   private readonly _app: express.Express
   private _httpServer?: http.Server
 
-  constructor(port: string, httpConfiguration: typeof HttpConfig) {
+  constructor(port: string, server: any) {
     this._port = port
     this._app = express()
     this._app.use(Middlewares.cors)
@@ -49,7 +50,7 @@ export class GraphqlServer {
     /** Parse cookies */
     this._app.use(cookieParser())
 
-    this._app.use('/graphql', httpConfiguration)
+    this._app.use('/graphql', expressMiddleware(server))
 
     this._app.use(Middlewares.resourceNotFound)
     this._app.use(Middlewares.internalServerError)

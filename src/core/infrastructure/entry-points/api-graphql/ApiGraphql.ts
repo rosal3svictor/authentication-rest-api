@@ -1,7 +1,10 @@
+import { ApolloServer } from '@apollo/server'
+
 import { ExpressServers } from '../../instances'
 import { Implementation } from '../../implementations'
 
-import { HttpConfig } from './http-config'
+import typeDefs from './typeDefs'
+import resolvers from './resolvers'
 
 export class ApiGraphql {
     server?: ExpressServers.GraphqlServer
@@ -9,7 +12,10 @@ export class ApiGraphql {
     async start(): Promise<void> {
         const port = process.env.SERVER_PORT as string
 
-        this.server = new ExpressServers.GraphqlServer(port, HttpConfig)
+        const server = new ApolloServer({ typeDefs, resolvers })
+        await server.start()
+
+        this.server = new ExpressServers.GraphqlServer(port, server)
 
         try {
             await this.server.listen().then(function () {
